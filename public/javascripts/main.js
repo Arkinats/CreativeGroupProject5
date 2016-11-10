@@ -19,6 +19,8 @@ gp5App.controller("mainCtrl", function($http, $scope) {
         console.log(newMovie);
         return $http.post(url, newMovie).success(function(response) {
             console.log("post success");
+            $scope.title = "";
+            $scope.year = "";
             $scope.getMovies();
         });
     };
@@ -60,6 +62,7 @@ gp5App.controller("mainCtrl", function($http, $scope) {
         $scope.title = title;
         $scope.year = date.substring(0, 4);
         $scope.results = "";
+        //$scope.addMovie();
     }
 });
 
