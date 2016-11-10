@@ -1,0 +1,49 @@
+body {
+  background-image: url("https://theamazingworldofpsychiatry.files.wordpress.com/2010/09/istock_000009307982large.jpg");
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-position: center; 
+ padding: 50px;
+ font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+highlight:hover {
+  background-color: lightgrey;
+  padding: 5px;
+  margin: 2px;
+}
+
+table td, table th {
+  min-width: 50px;
+  padding: 5px;
+  margin: 3px;
+}
+table tr {
+  padding: 3px;
+}
+
+input[type='checkbox'] {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.red {
+  color: black;
+  background-color: lightsalmon;
+  padding: 3px;
+  margin: 3px;
+}
+.red:hover {
+  background-color: #333;
+  color: lightsalmon;
+}
+

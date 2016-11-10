@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Movie DB</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d-float">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+        <script src="javascripts/main.js"></script>
+    </head>
+    <body ng-app="gp5App" ng-controller="mainCtrl">
+        <div id="login" class="center">
+            <input type="text" id="username" ng-model="username" placeholder="Username">
+            <button ng-click="login()" class="w3-btn w3-purple">Load</button>
+        </div><br><br>
+        <div class="w3-container w3-center font-effect-shadow-multiple"> 
+            <h1><b>BYU CS201R Movie Hub</b></h1>
+        </div>
+        <br><br>
+        <div id="movies" class="w3-container w3-section w3-border-top w3-border-bottom">
+            <p><label>Movie Name</label></p>
+            <p><input class="w3-input w3-animate-input" style="width:30%" type="text" ng-model="title" ng-keypress="find()"></p>
+            <p><label>Movie Year</label></p>
+            <p><input class="w3-input w3-animate-input" style="width:30%" type="text" ng-model="year"></p>
+            
+            <input type="checkbox" ng-model="dvd" class="w3-check"><label class="w3-validate">DVD</label>&nbsp;
+            <input type="checkbox" ng-model="bluray" class="w3-check"><label class="w3-validate">Bluray</label>&nbsp;
+            <input type="checkbox" ng-model="threed" class="w3-check"><label class="w3-validate">3D</label>&nbsp;
+            <input type="checkbox" ng-model="fourk" class="w3-check"><label class="w3-validate">4K</label>&nbsp;
+            <input type="checkbox" ng-model="digital" class="w3-check"><label class="w3-validate">Digital</label><br><br><br>
+            <p><button class="w3-btn-block w3-teal" type="submit" ng-click="addMovie()">Add Movie</button> </p>
+        </div>
+        <div>
+            <div ng-repeat="i in results" ng-click="setMovie(i.title, i.release_date)" class="highlight red">
+                {{i.title}} - {{i.release_date}}
+            </div>
+        </div>
+        <br><br>
+        <div class="w3-container">
+            <div class="w3-panel w3-padding w3-blue">
+            <table class="w3-table w3-striped w3-border">
+                <tr class="w3-padding-8">
+                    <th>Title
+                    <th>Year
+                    <th>DVD
+                    <th>Bluray
+                    <th>3D
+                    <th>4K
+                    <th>Digital
+                    <th>Delete
+                </tr>
+                <tr ng-repeat="i in movielist">
+                    <td>{{i.title}}</td>
+                    <td>{{i.year}}</td>
+                    <td><input type="checkbox" ng-model="i.dvd" ng-click="flagdvd(i._id, i.dvd, i.bluray, i.threed, i.fourk, i.digital)">
+                    <td><input type="checkbox" ng-model="i.bluray" ng-click="flagdvd(i._id, i.dvd, i.bluray, i.threed, i.fourk, i.digital)">
+                    <td><input type="checkbox" ng-model="i.threed" ng-click="flagdvd(i._id, i.dvd, i.bluray, i.threed, i.fourk, i.digital)">
+                    <td><input type="checkbox" ng-model="i.fourk" ng-click="flagdvd(i._id, i.dvd, i.bluray, i.threed, i.fourk, i.digital)">
+                    <td><input type="checkbox" ng-model="i.digital" ng-click="flagdvd(i._id, i.dvd, i.bluray, i.threed, i.fourk, i.digital)">
+                    <td><span ng-click="delete(i._id)">X</span>
+                </tr>
+            </table>
+            </div>
+
+        </div>
+    </body>
+</html>
